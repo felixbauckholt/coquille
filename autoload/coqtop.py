@@ -223,6 +223,8 @@ def restart_coq(*args):
                 options + list(args)
               , stdin = subprocess.PIPE
               , stdout = subprocess.PIPE
+              , stderr = subprocess.PIPE # Do this so that the stderr output doesn't randomly appear on the screen
+                                         # TODO: Maybe display the stderr output somewhere useful?
               , preexec_fn = ignore_sigint
             )
 
